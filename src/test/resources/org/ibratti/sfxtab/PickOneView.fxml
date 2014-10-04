@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <fx:define>
+        <ToggleGroup fx:id="radioGroup"/>
+    </fx:define>
+    <children>
+        <Label text="Pick One"/>
+        <HBox VBox.vgrow="ALWAYS">
+            <children>
+                <HBox>
+                    <children>
+                        <RadioButton fx:id="bogsRadio" text="Bogs" toggleGroup="$radioGroup" />
+                        <RadioButton fx:id="dolanRadio" text="Dolan" toggleGroup="$radioGroup" />
+                        <RadioButton fx:id="goobyRadio" text="Gooby" toggleGroup="$radioGroup" />
+                    </children>
+                </HBox>
+                <Button text="Pick!" onAction="#pickButton"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>
