@@ -14,7 +14,7 @@ class StackableTab(val root: InnerPanel) extends Tab {
   private val whereAmILbl: Label = new Label()
   vbox.getChildren.add(whereAmILbl)
   vbox.getChildren.add(new Separator(Orientation.HORIZONTAL))
-  vbox.getChildren.add(root.view)
+  //vbox.getChildren.add(root.view)
   setContent(vbox)
 
   stackedScenes.push(root)
@@ -30,8 +30,8 @@ class StackableTab(val root: InnerPanel) extends Tab {
 
   def openWindow(innerView: InnerPanel) {
     innerView.aba = this
-    vbox.getChildren.remove(stackedScenes.top.view)
-    vbox.getChildren.add(innerView.view)
+    //vbox.getChildren.remove(stackedScenes.top.view)
+    //vbox.getChildren.add(innerView.view)
     stackedScenes.push(innerView)
     refresh()
   }
@@ -48,8 +48,8 @@ class StackableTab(val root: InnerPanel) extends Tab {
       getTabPane.getTabs.remove(this)
     else {
       stackedScenes.top.returningFromWithValue(valorRetorno)
-      vbox.getChildren.remove(top.view)
-      vbox.getChildren.add(stackedScenes.top.view)
+      //vbox.getChildren.remove(top.view)
+      //vbox.getChildren.add(stackedScenes.top.view)
       refresh()
     }
   }

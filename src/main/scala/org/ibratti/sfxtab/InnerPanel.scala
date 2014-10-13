@@ -10,9 +10,6 @@ import javafx.stage.Stage
 
 
 trait InnerPanel extends Initializable{
-  private val loader = new FXMLLoader(classOf[InnerPanel].getResource(fxmlResource))
-  loader.setController(this)
-  val view = loader.load().asInstanceOf[Parent]
   var aba: StackableTab = _
 
   def initialize(p1: URL, p2: ResourceBundle) = initialize()
