@@ -1,19 +1,20 @@
 package org.ibratti.sfxtab
 
+import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.stage.Stage
 
 
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
-import scalafxml.core.{NoDependencyResolver, FXMLView}
+import scalafxml.core.{DependenciesByType, NoDependencyResolver, FXMLView}
 
 object SfxtabSampleApp extends JFXApp {
   val inicio = System.currentTimeMillis()
 
   stage = new PrimaryStage
   stage.setTitle("SFXTab Sample")
-  stage.setScene(new Scene(FXMLView(getClass.getResource("HelloView.fxml"), NoDependencyResolver )))
+  stage.setScene(FXMLLoader.load(getClass.getResource("HelloView.fxml")))
   stage.centerOnScreen()
   stage.show()
 

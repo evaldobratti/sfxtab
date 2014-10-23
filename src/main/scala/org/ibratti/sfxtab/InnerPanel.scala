@@ -10,7 +10,7 @@ import javafx.stage.Stage
 
 
 trait InnerPanel extends Initializable{
-  var aba: StackableTab = _
+  val aba: StackableTab
 
   def initialize(p1: URL, p2: ResourceBundle) = initialize()
 
@@ -33,8 +33,6 @@ trait InnerPanel extends Initializable{
   }
 
   def name: String
-
-  def fxmlResource: String
 
   def showWarningDialog(message: String)(implicit stage: Stage) = Dialogs.showWarningDialog(stage , message, "Atenção", "Atenção")
 

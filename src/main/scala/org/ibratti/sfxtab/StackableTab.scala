@@ -6,7 +6,7 @@ import javafx.scene.layout.{VBox, HBox}
 
 import scala.collection.mutable.Stack
 
-class StackableTab(val root: InnerPanel) extends Tab {
+class StackableTab extends Tab {
   val stackedScenes = Stack[InnerPanel]()
   val vbox = new VBox()
   vbox.setPadding(new Insets(padding, padding, padding, padding))
@@ -17,11 +17,7 @@ class StackableTab(val root: InnerPanel) extends Tab {
   //vbox.getChildren.add(root.view)
   setContent(vbox)
 
-  stackedScenes.push(root)
-  setText(root.name)
-
   refresh()
-  root.aba = this
 
   def refresh() = {
     whereAmILbl.setText("Você está em: " + stackedScenes.map(_.name).mkString(" > "))
@@ -29,9 +25,6 @@ class StackableTab(val root: InnerPanel) extends Tab {
   }
 
   def openWindow(innerView: InnerPanel) {
-    innerView.aba = this
-    //vbox.getChildren.remove(stackedScenes.top.view)
-    //vbox.getChildren.add(innerView.view)
     stackedScenes.push(innerView)
     refresh()
   }

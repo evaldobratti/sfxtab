@@ -3,16 +3,13 @@ package org.ibratti.sfxtab
 import javafx.fxml.FXML
 import javafx.scene.control.{RadioButton, ToggleGroup}
 
-class PickOneController extends InnerPanel {
-  @FXML var radioGroup: ToggleGroup = _
-
-  @FXML var bogsRadio: RadioButton = _
-  @FXML var dolanRadio: RadioButton = _
-  @FXML var goobyRadio: RadioButton = _
+class PickOneController(private val radioGroup: ToggleGroup,
+  private val bogsRadio: RadioButton,
+  private val dolanRadio: RadioButton,
+  private val goobyRadio: RadioButton,
+  val aba: StackableTab) extends InnerPanel {
 
   override def name: String = "Pick :)"
-
-  override def fxmlResource: String = "PickOneView.fxml"
 
   override def openingWithValue(param: Any): Unit = {
     val initialString = param.asInstanceOf[String]

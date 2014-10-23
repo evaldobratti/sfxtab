@@ -8,14 +8,15 @@ object SFXTab extends Build {
   val testFx = "org.loadui" % "testFx" % "3.1.2" % "test"
 
   val utest = "com.lihaoyi" %% "utest" % "0.2.3"
-  val scalafxml = "scalafxml-dynamic" %% "core" % "0.1"
+  //val scalafxml = "scalafxml-dynamic" %% "core" % "0.1"
+  val scalafxml = "org.scalafx" % "scalafxml-core_2.10" % "0.2.1"
   lazy val sfxtab =
         Project(
             id = "sfxtab",
             base = file("."),
             settings = commonSettings ++ Seq(
-                libraryDependencies ++=
-                    Seq(scalafx, testFx, utest, scalafxml)
+                libraryDependencies ++= Seq(scalafx, testFx, utest, scalafxml),
+                addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full)
                 )
 
         )
