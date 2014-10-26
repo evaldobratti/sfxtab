@@ -11,34 +11,29 @@ class StackableTab(val root: InnerPanel) extends Tab {
   val vbox = new VBox()
   vbox.setPadding(new Insets(padding, padding, padding, padding))
   vbox.setSpacing(5)
-  private val whereAmILbl: Label = new Label()
+  val whereAmILbl: Label = new Label()
+  whereAmILbl.setId("whereAmILbl")
   vbox.getChildren.add(whereAmILbl)
   vbox.getChildren.add(new Separator(Orientation.HORIZONTAL))
   vbox.getChildren.add(root.view)
   setContent(vbox)
 
   stackedScenes.push(root)
-  setText(root.name)
 
   refresh()
   root.aba = this
 
   def refresh() = {
-    whereAmILbl.setText("Você está em: " + stackedScenes.map(_.name).mkString(" > "))
+    whereAmILbl.setText("Você está em: " + stackedScenes.reverse.map(_.name).mkString(" > "))
     setText(stackedScenes.top.name)
   }
 
-  def openWindow(innerView: InnerPanel) {
-    innerView.aba = this
+  def openWindow(janela: InnerPanel, arg: Option[Any]) {
     vbox.getChildren.remove(stackedScenes.top.view)
-    vbox.getChildren.add(innerView.view)
-    stackedScenes.push(innerView)
-    refresh()
-  }
-
-  def openWindow(janela: InnerPanel, params: Any) {
-    janela.openingWithValue(params)
-    openWindow(janela)
+    vbox.getChildren.add(janela.view)
+    janela.openingWithValue(arg)
+    janela.aba = this
+    stackedScenes.push(janela)
     refresh()
   }
 
@@ -54,5 +49,6 @@ class StackableTab(val root: InnerPanel) extends Tab {
     }
   }
 
+  def actualContent = getContent.asInstanceOf[VBox].getChildren.get(2)
   def padding = 10
 }

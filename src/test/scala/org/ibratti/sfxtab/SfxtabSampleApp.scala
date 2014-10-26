@@ -1,18 +1,19 @@
 package org.ibratti.sfxtab
 
+import javafx.application.Application
 import javafx.scene.Scene
 import javafx.stage.Stage
 
+class SfxtabSampleApp extends Application {
 
-import scalafx.application.JFXApp
-import scalafx.application.JFXApp.PrimaryStage
+  override def start(stage: Stage): Unit = {
 
-object SfxtabSampleApp extends JFXApp {
-  stage = new PrimaryStage
-  stage.setTitle("SFXTab Sample")
-  stage.setScene(new Scene(SFXTabSampleController()))
-  stage.centerOnScreen()
-  stage.show()
+    stage.setTitle("SFXTab Sample")
+    stage.setScene(new Scene(SFXTabSampleController()))
+    stage.centerOnScreen()
+    stage.show()
 
-  implicit val mainStage: Stage = stage
+  }
+
+  //implicit val mainStage: Stage = stage
 }

@@ -14,8 +14,8 @@ class PickOneController extends InnerPanel {
 
   override def fxmlResource: String = "PickOneView.fxml"
 
-  override def openingWithValue(param: Any): Unit = {
-    val initialString = param.asInstanceOf[String]
+  override def openingWithValue(param: Option[Any]): Unit = {
+    val initialString = param.getOrElse("").asInstanceOf[String]
     initialString match {
       case "Bogs" => radioGroup.selectToggle(bogsRadio)
       case "Dolan" => radioGroup.selectToggle(dolanRadio)
@@ -25,6 +25,6 @@ class PickOneController extends InnerPanel {
   }
 
   def pickButton() = {
-    closeWindow(radioGroup.getSelectedToggle.asInstanceOf[RadioButton].getText)
+    closeWindow(Option(radioGroup.getSelectedToggle.asInstanceOf[RadioButton].getText))
   }
 }

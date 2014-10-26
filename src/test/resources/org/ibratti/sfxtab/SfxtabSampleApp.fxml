@@ -11,14 +11,14 @@
         <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
             <MenuBar focusTraversable="false" prefWidth="-1.0" useSystemMenuBar="false">
                 <menus>
-                    <Menu mnemonicParsing="false" text="Produto">
+                    <Menu styleClass="menu" mnemonicParsing="false" text="Menu" >
                         <items>
-                            <MenuItem mnemonicParsing="false" text="Cadastros" onAction="#cadastroClick"/>
+                            <MenuItem mnemonicParsing="false" text="Test" onAction="#testClick" id="testMenuItem"/>
                         </items>
                     </Menu>
                 </menus>
             </MenuBar>
-            <StackableTabPane fx:id="tab"/>
+            <StackableTabPane id="tab" fx:id="tab"/>
 
         </VBox>
     </children>

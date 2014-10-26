@@ -3,11 +3,13 @@ import Keys._
 
 object SFXTab extends Build {
 
-  val scalafx = "org.scalafx" %% "scalafx" % "1.0.0-M4"
-
   val testFx = "org.loadui" % "testFx" % "3.1.2" % "test"
 
-  val utest = "com.lihaoyi" %% "utest" % "0.2.3"
+  val scalaMock = "org.scalamock" %% "scalamock-scalatest-support" % "3.2-RC1" % "test"
+
+  val scalaXml = "org.scala-lang.modules" %% "scala-xml" % "1.0.1" % "test"
+
+  val junit = "junit" % "junit" % "4.10"
 
   lazy val sfxtab =
         Project(
@@ -15,7 +17,7 @@ object SFXTab extends Build {
             base = file("."),
             settings = commonSettings ++ Seq(
                 libraryDependencies ++=
-                    Seq(scalafx, testFx, utest)
+                    Seq(testFx, scalaMock, junit, scalaXml)
                 )
 
         )
@@ -25,12 +27,13 @@ object SFXTab extends Build {
         Defaults.defaultSettings ++ Seq(
             organization := "org.ibratti",
             version := "1.0-SNAPSHOT",
-            scalaVersion := "2.10.3",
+            scalaVersion := "2.11.2",
             publishArtifact in Test := false,
             parallelExecution in Test := false,
             unmanagedBase := baseDirectory.value / "lib",
             publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository"))),
             unmanagedJars in Compile += Attributed.blank(file(System.getenv("JAVA_HOME") + "/jre/lib/jfxrt.jar")),
             fork in run := true
+
         )
 }

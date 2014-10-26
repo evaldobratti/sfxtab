@@ -22,7 +22,7 @@ class SFXTabSampleController extends Initializable {
 
   }
 
-  def cadastroClick() = {
+  def testClick() = {
     tab.newTabFromView(new HelloController)
   }
 }

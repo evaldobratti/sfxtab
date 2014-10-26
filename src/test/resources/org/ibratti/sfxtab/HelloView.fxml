@@ -8,8 +8,8 @@
         <Label text="Hi there :)"/>
         <HBox VBox.vgrow="ALWAYS">
             <children>
-                <TextField fx:id="selectedValueTxt" disable="true" VBox.vgrow="ALWAYS"/>
-                <Button text="..." onAction="#selectButton"/>
+                <TextField fx:id="selectedValueTxt" disable="true" VBox.vgrow="ALWAYS" id="selectedValueTxt"/>
+                <Button text="..." onAction="#selectButton" id="selectBtn" />
             </children>
         </HBox>
     </children>

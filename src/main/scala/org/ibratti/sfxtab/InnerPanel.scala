@@ -10,28 +10,33 @@ import javafx.stage.Stage
 
 
 trait InnerPanel extends Initializable{
-  private val loader = new FXMLLoader(classOf[InnerPanel].getResource(fxmlResource))
-  loader.setController(this)
-  val view = loader.load().asInstanceOf[Parent]
+  private var _view: Option[Parent] = None
+
+  def view: Parent = _view match{
+    case None =>
+      val loader = new FXMLLoader(classOf[InnerPanel].getResource(fxmlResource))
+      loader.setController(this)
+      _view = Option(loader.load().asInstanceOf[Parent])
+      _view.get
+    case Some(v) => v
+  }
+
   var aba: StackableTab = _
 
   def initialize(p1: URL, p2: ResourceBundle) = initialize()
 
-  def initialize() = {}
+  def initialize() = {
+  }
 
   def returningFromWithValue(returnValue: Any) = {}
 
-  def openingWithValue(param: Any) = {}
+  def openingWithValue(param: Option[Any]) = {}
 
-  def openWindow(janela: InnerPanel) = {
-    aba.openWindow(janela)
-  }
-
-  def openWindow(janela: InnerPanel, param: Any) = {
+  def openWindow(janela: InnerPanel, param: Option[Any]) = {
     aba.openWindow(janela, param)
   }
 
-  def closeWindow(param: Any) = {
+  def closeWindow(param: Option[Any]) = {
     aba.closeWindow(param)
   }
 
