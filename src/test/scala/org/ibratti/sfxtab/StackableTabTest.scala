@@ -1,7 +1,10 @@
 package org.ibratti.sfxtab
 
+import java.lang.reflect.Method
+import javafx.beans.property.SimpleListProperty
+import javafx.collections.ObservableList
 import javafx.scene.Parent
-import javafx.scene.control.{Separator, Label}
+import javafx.scene.control.{TabPane, Tab, Separator, Label}
 import javafx.scene.layout.VBox
 
 import org.scalamock.scalatest.MockFactory
@@ -73,10 +76,20 @@ class StackableTabTest extends FunSuite with BeforeAndAfter with MockFactory {
   test("Closes tab when closing root view") {
     beforee()
     val tab: StackableTab = new StackableTab(root)
-    throw new Exception("need to inject a mock into tabPane")
+    val tabPane: TabPane = new TabPane
+    tabPane.getTabs.add(tab)
+
+    hackTabToHaveATabPane(tab, tabPane)
+
     tab.closeWindow(Option(1))
 
-
+    assert(tab.stackedScenes.size === 0)
+    assert(tabPane.getTabs.isEmpty)
   }
-  
+
+  def hackTabToHaveATabPane(tab: StackableTab, tabPane: TabPane) {
+    val setTabPane: Method = tab.getClass.getSuperclass.getDeclaredMethod("setTabPane", classOf[TabPane])
+    setTabPane.setAccessible(true)
+    setTabPane.invoke(tab, tabPane)
+  }
 }
