@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox
 import javafx.stage.Stage
 
 
+
 trait InnerPanel extends Initializable{
   private var _view: Option[Parent] = None
 
