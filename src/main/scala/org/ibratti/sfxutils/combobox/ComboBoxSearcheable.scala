@@ -7,9 +7,7 @@ import javafx.scene.control.ComboBox
 import javafx.scene.input.{KeyCode, KeyEvent}
 import javafx.util.StringConverter
 
-
-
-class ComboBoxSearcheable[T](val functions: ComboBoxSearchableFunctions[T]) extends ComboBox[T] {
+class ComboBoxSearcheable[T](val functions: ComboBoxSearcheableFunctions[T]) extends ComboBox[T] {
   setEditable(true)
 
   getEditor.setOnKeyReleased(new EventHandler[KeyEvent] {

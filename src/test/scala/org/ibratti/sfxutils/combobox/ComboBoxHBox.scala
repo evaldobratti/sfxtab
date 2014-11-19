@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox
 object ComboBoxHBox {
    def apply() = {
      val searcher: ComboBoxSearcheable[ComplexObject] = new ComboBoxSearcheable[ComplexObject](
-       new ComboBoxSearchableFunctions[ComplexObject] {
+       new ComboBoxSearcheableFunctions[ComplexObject] {
          override def search(value: String): List[ComplexObject] = values.filter(_.stringField.startsWith(value))
 
          override def toString(value: ComplexObject): String = value.stringField
