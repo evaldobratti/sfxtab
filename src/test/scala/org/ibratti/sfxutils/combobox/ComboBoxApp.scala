@@ -1,19 +1,24 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.combobox
 
 import javafx.application.Application
 import javafx.scene.Scene
+import javafx.scene.control.Button
+import javafx.scene.layout.HBox
 import javafx.stage.Stage
 
-class SfxtabSampleApp extends Application {
+class ComboBoxApp extends Application {
 
   override def start(stage: Stage): Unit = {
-
     stage.setTitle("SFXTab Sample")
-    stage.setScene(new Scene(SFXTabSampleController()))
+
+
+    stage.setScene(new Scene(ComboBoxHBox()))
     stage.centerOnScreen()
     stage.show()
-
   }
 
-  //implicit val mainStage: Stage = stage
 }
+
+
+
+

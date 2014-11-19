@@ -1,4 +1,4 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import javafx.scene.control.{Label, RadioButton, TextField}
 import javafx.scene.{Node, Parent}
@@ -6,11 +6,8 @@ import javafx.scene.{Node, Parent}
 import com.google.common.base.Predicate
 import org.junit.Test
 import org.loadui.testfx.{Assertions, GuiTest}
-import org.scalamock.Mock
-import org.scalamock.scalatest.MockFactory
-import org.scalatest.{FunSuiteLike, FunSuite}
 
-class Integration extends GuiTest {
+class StackableTabGuiTest extends GuiTest {
 
   @Test
   def integration() = {

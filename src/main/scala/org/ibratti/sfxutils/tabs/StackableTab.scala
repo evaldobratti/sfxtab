@@ -1,8 +1,8 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import javafx.geometry.{Insets, Orientation}
-import javafx.scene.control.{Separator, Label, Tab}
-import javafx.scene.layout.{VBox, HBox}
+import javafx.scene.control.{Label, Separator, Tab}
+import javafx.scene.layout.VBox
 
 import scala.collection.mutable.Stack
 
@@ -37,7 +37,7 @@ class StackableTab(val root: InnerPanel) extends Tab {
     refresh()
   }
 
-  def closeWindow(valorRetorno: Any) {
+  def closeWindow(valorRetorno: Option[Any]) {
     val top = stackedScenes.pop()
     if (stackedScenes.isEmpty)
       getTabPane.getTabs.remove(this)

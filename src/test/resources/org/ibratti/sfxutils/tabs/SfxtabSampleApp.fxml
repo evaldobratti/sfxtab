@@ -3,10 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import org.ibratti.sfxtab.StackableTabPane?>
+<?import org.ibratti.sfxutils.tabs.StackableTabPane?>
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="org.ibratti.sfxtab.SFXTabSampleController">
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="org.ibratti.sfxutils.tabs.SFXTabSampleController">
     <children>
         <VBox AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
             <MenuBar focusTraversable="false" prefWidth="-1.0" useSystemMenuBar="false">

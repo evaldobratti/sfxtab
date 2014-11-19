@@ -1,4 +1,4 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import javafx.fxml.FXML
 import javafx.scene.control.{RadioButton, ToggleGroup}

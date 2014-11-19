@@ -1,10 +1,8 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import java.lang.reflect.Method
-import javafx.beans.property.SimpleListProperty
-import javafx.collections.ObservableList
 import javafx.scene.Parent
-import javafx.scene.control.{TabPane, Tab, Separator, Label}
+import javafx.scene.control.{Label, Separator, TabPane}
 import javafx.scene.layout.VBox
 
 import org.scalamock.scalatest.MockFactory

@@ -1,7 +1,6 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import javafx.scene.control.TabPane
-import javafx.stage.Stage
 
 class StackableTabPane extends TabPane {
   def newTabFromView(view: InnerPanel) = {

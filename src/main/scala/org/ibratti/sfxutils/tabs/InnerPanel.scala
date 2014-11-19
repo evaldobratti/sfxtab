@@ -1,13 +1,11 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import java.net.URL
 import java.util.ResourceBundle
 import javafx.fxml.{FXMLLoader, Initializable}
 import javafx.scene.Parent
-import javafx.scene.control.{TextField, Dialogs}
-import javafx.scene.layout.VBox
+import javafx.scene.control.Dialogs
 import javafx.stage.Stage
-
 
 
 trait InnerPanel extends Initializable{
@@ -29,7 +27,7 @@ trait InnerPanel extends Initializable{
   def initialize() = {
   }
 
-  def returningFromWithValue(returnValue: Any) = {}
+  def returningFromWithValue(returnValue: Option[Any]) = {}
 
   def openingWithValue(param: Option[Any]) = {}
 

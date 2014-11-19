@@ -1,4 +1,4 @@
-package org.ibratti.sfxtab
+package org.ibratti.sfxutils.tabs
 
 import java.net.URL
 import java.util.ResourceBundle
