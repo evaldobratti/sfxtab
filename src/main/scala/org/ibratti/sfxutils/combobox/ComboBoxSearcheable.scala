@@ -7,15 +7,14 @@ import javafx.scene.control.ComboBox
 import javafx.scene.input.{KeyCode, KeyEvent}
 import javafx.util.StringConverter
 
-class ComboBoxSearcheable[T](val functions: ComboBoxSearcheableFunctions[T]) extends ComboBox[T] {
+class ComboBoxSearcheable[T] extends ComboBox[T] {
   setEditable(true)
+  var functions: ComboBoxSearcheableFunctions[T] = _
 
   getEditor.setOnKeyReleased(new EventHandler[KeyEvent] {
     override def handle(p1: KeyEvent): Unit = {
-      println(getEditor.getText)
       if (p1.getCode.isLetterKey || p1.getCode.isDigitKey
         || p1.getCode == KeyCode.BACK_SPACE || p1.getCode == KeyCode.DELETE) {
-        println("search")
         if (getValue != null && (p1.getCode.isLetterKey || p1.getCode.isDigitKey)) {
           val previousCaretPosition = getEditor.getCaretPosition
           val previousString: String = functions.internalToString(getValue)
@@ -23,7 +22,6 @@ class ComboBoxSearcheable[T](val functions: ComboBoxSearcheableFunctions[T]) ext
           val beforeCaret: String = previousString.substring(0, previousCaretPosition -1)
           val afterCaret: String = previousString.substring(previousCaretPosition - 1)
 
-          println(s"before $beforeCaret after $afterCaret")
           getEditor.setText(beforeCaret + p1.getText + afterCaret)
           getEditor.positionCaret(previousCaretPosition)
         }
@@ -40,7 +38,6 @@ class ComboBoxSearcheable[T](val functions: ComboBoxSearcheableFunctions[T]) ext
           }
 
       } else if (p1.getCode == KeyCode.UP || p1.getCode == KeyCode.DOWN) {
-        println("change value")
         getEditor.positionCaret(getEditor.getText.size)
       } else if (isShowing) {
         val position: Int = getEditor.getCaretPosition
