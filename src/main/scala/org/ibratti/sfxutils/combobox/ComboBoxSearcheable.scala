@@ -7,7 +7,7 @@ import javafx.scene.control.ComboBox
 import javafx.scene.input.{KeyCode, KeyEvent}
 import javafx.util.StringConverter
 
-class ComboBoxSearcheable[T] extends ComboBox[T] {
+class ComboBoxSearcheable[T >: Null] extends ComboBox[T] {
   setEditable(true)
   var functions: ComboBoxSearcheableFunctions[T] = _
 
@@ -18,7 +18,7 @@ class ComboBoxSearcheable[T] extends ComboBox[T] {
         if (getValue != null && (p1.getCode.isLetterKey || p1.getCode.isDigitKey)) {
           val previousCaretPosition = getEditor.getCaretPosition
           val previousString: String = functions.internalToString(getValue)
-          setValue(null.asInstanceOf[T])
+          setValue(null)
           val beforeCaret: String = previousString.substring(0, previousCaretPosition -1)
           val afterCaret: String = previousString.substring(previousCaretPosition - 1)
 
